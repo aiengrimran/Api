@@ -35,7 +35,7 @@ class DeliveryController extends Controller
      */
     public function store(Request $request)
     {
-        Delivery::create([
+        $delivery=Delivery::create([
             'name' => $request->name,
             'user_id' =>$request->user_id,
             'sender_address' => $request->sender_address,
@@ -43,6 +43,7 @@ class DeliveryController extends Controller
             'email' => $request->email,
             'phone' => $request->phone
         ]);
+         return $delivery->id;
     }
 
     /**
