@@ -21,6 +21,7 @@ class CreateDeliveriesTable extends Migration
             $table->string('delivery_address');
             $table->string('email');
             $table->string('phone');
+            $table->string('pick_up_time');
             $table->timestamps();
         });
     }
