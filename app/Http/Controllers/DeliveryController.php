@@ -41,7 +41,8 @@ class DeliveryController extends Controller
             'sender_address' => $request->sender_address,
             'delivery_address' => $request->delivery_address,
             'email' => $request->email,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'pick_up_time' =>$request->pick_up_time
         ]);
          return $delivery->id;
     }
