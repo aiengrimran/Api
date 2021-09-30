@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rules;
+
 
 class ApiController extends Controller
 {
@@ -31,6 +33,11 @@ class ApiController extends Controller
 
     public function create(Request $request)
     {
+    	$request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', Rules\Password::defaults()],
+        ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -40,5 +47,10 @@ class ApiController extends Controller
         return $user->createToken($deviceName)->plainTextToken;
         // return $user->createToken($request->device_name)->plainTextToken;
 
+    }
+
+    public function logout (Request $request) {
+
+	return ('Loggedout');
     }
 }

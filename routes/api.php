@@ -33,5 +33,8 @@ Route::post('/tokens/create', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:sanctum')->post('/sanctum/logout',[ApiController::class, 'logout']);
+});
 Route::post('/sanctum/token', [ApiController::class, 'create']);
 Route::post('/sanctum/login', [ApiController::class, 'login']);
+
