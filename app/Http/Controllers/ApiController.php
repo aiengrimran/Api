@@ -35,7 +35,7 @@ class ApiController extends Controller
     	$request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required'],
+            'password' => ['required','min:8'],
         ]);
         $user = User::create([
             'name' => $request->name,
@@ -46,6 +46,12 @@ class ApiController extends Controller
         return $user->createToken($deviceName)->plainTextToken;
         // return $user->createToken($request->device_name)->plainTextToken;
 
+    }
+    public function logout (Request $request) {
+    
+    	$request->user()->tokens()->delete();
+    	
+    	return 'user Logged out';
     }
     
 
