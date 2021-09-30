@@ -51,21 +51,5 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
-    public function create(Request $request)
-    {
-    	$request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required'],
-        ]);
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        $deviceName ='iphone12';
-        return $user->createToken($deviceName)->plainTextToken;
-        // return $user->createToken($request->device_name)->plainTextToken;
-
-    }
+    
 }
