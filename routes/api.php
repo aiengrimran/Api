@@ -60,6 +60,8 @@ Route::get('/auth/callback', function () {
 
     }
     else {
+        $deviceName = 'ipone14';              
+
         $user = User::where('email', $callBackUser->email)->first();
 
         return $user->createToken($deviceName)->plainTextToken;

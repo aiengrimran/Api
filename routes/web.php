@@ -26,26 +26,26 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->stateless()->redirect();
-});
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('google')->stateless()->redirect();
+// });
 
-Route::get('/auth/callback', function () {
-    $callBackUser = Socialite::driver('google')->stateless()->user();
-    if(!User::where('email',$callBackUser->email)->first()) {
-        $newUser=User::create([
-            'name' =>$callBackUser->name,
-            'email' =>$callBackUser->email
-        ]);
-        $deviceName = 'ipone13';              
+// Route::get('/auth/callback', function () {
+//     $callBackUser = Socialite::driver('google')->stateless()->user();
+//     if(!User::where('email',$callBackUser->email)->first()) {
+//         $newUser=User::create([
+//             'name' =>$callBackUser->name,
+//             'email' =>$callBackUser->email
+//         ]);
+//         $deviceName = 'ipone13';              
 
-        return $newUser->createToken($deviceName)->plainTextToken;
+//         return $newUser->createToken($deviceName)->plainTextToken;
 
-    }
-    else {
-        $user = User::where('email', $callBackUser->email)->first();
+//     }
+//     else {
+//         $user = User::where('email', $callBackUser->email)->first();
 
-        return $user->createToken($deviceName)->plainTextToken;
+//         return $user->createToken($deviceName)->plainTextToken;
 
-    }
-});
+//     }
+// });

@@ -17,7 +17,6 @@ class ApiController extends Controller
             //     'password' => 'required',
             //     'device_name' => 'required',
             // ]);
-        
             $user = User::where('email', $request->email)->first();
         
             if (! $user || ! Hash::check($request->password, $user->password)) {
