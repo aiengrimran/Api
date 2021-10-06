@@ -1,0 +1,25 @@
+[2021-10-05 08:22:01] 
+local.INFO: {
+    "token":"ya29.a0ARrdaM-Gic4MrNDZfgxpU5OuAcDFmHxs1bG4_PQQmFTc8QxFFbosDzqlYiK9qGfNhl1cr8PUieP8ezT910eS4SErDZRoYWZdEIKcvQANzuxfTLabPvAR_PM2svvaT7TF2qk5uAAudW6mrVVdQZF-26yhnl_5",
+    "refreshToken":null,
+    "expiresIn":3599,
+    "id":"106297552944924339024",
+    "nickname":null,
+    "name":"engr khan",
+    "email":"ik447626@gmail.com",
+    "avatar":"https:\/\/lh3.googleusercontent.com\/a-\/AOh14Gipoxstpdfugb62AdZuoYH21jx9VtnzFj33wFgd=s96-c",
+        "user":{
+            "sub":"106297552944924339024",
+            "name":"engr khan",
+            "given_name":"engr",
+            "family_name":"khan",
+            "picture":"https:\/\/lh3.googleusercontent.com\/a-\/AOh14Gipoxstpdfugb62AdZuoYH21jx9VtnzFj33wFgd=s96-c",
+            "email":"ik447626@gmail.com",
+            "email_verified":true,
+            "locale":"en",
+            "id":"106297552944924339024",
+            "verified_email":true,
+            "link":null
+        },
+    "avatar_original":"https:\/\/lh3.googleusercontent.com\/a-\/AOh14Gipoxstpdfugb62AdZuoYH21jx9VtnzFj33wFgd=s96-c"
+    }  

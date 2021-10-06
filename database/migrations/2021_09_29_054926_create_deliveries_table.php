@@ -15,7 +15,7 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->integer('user_id')->nullable();
             $table->string('name');
             $table->string('sender_address');
             $table->string('delivery_address');
