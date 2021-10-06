@@ -43,7 +43,8 @@ Route::post('/sanctum/login', [ApiController::class, 'login']);
 // -------------------- Socailte Routes  ----------------------------------------------
 
 Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
+    return Socialite::driver('google')->stateless()->redirect();
+    //return Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
 });
 
 Route::get('/auth/callback', function () {
