@@ -32,7 +32,7 @@ return [
     'google' => [
     'client_id' => env('Google_CLIENT_ID'),
     'client_secret' => env('Google_CLIENT_SECRET'),
-    'redirect' => 'http://reactnativeapibyimran.herokuapp.com/api/auth/callback',
+    'redirect' => 'http://localhost:8000/api/auth/callback',
 ],
 
 ];

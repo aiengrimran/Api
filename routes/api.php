@@ -41,30 +41,34 @@ Route::post('/sanctum/token', [ApiController::class, 'create']);
 Route::post('/sanctum/login', [ApiController::class, 'login']);
 
 // -------------------- Socailte Routes  ----------------------------------------------
-
+  //reactnativeapibyimran.herokuapp.com/api/auth/redirect=http:/localhost:19006
 Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->stateless()->redirect();
+  return view('imranC');
+    // return Socialite::driver('google')->stateless()->redirect();
     //return Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
 });
 
+// Route::get('/auth/callback', function () {
+//     $callBackUser = Socialite::driver('google')->stateless()->user();
+//     if(!User::where('email',$callBackUser->email)->first()) {
+//         $newUser=User::create([
+//             'name' =>$callBackUser->name,
+//             'email' =>$callBackUser->email
+//         ]);
+//         $deviceName = 'ipone13';              
+
+//         return $newUser->createToken($deviceName)->plainTextToken;
+
+//     }
+//     else {
+//         $deviceName = 'ipone14';              
+
+//         $user = User::where('email', $callBackUser->email)->first();
+
+//         return $user->createToken($deviceName)->plainTextToken;
+
+//     }
+// });
 Route::get('/auth/callback', function () {
-    $callBackUser = Socialite::driver('google')->stateless()->user();
-    if(!User::where('email',$callBackUser->email)->first()) {
-        $newUser=User::create([
-            'name' =>$callBackUser->name,
-            'email' =>$callBackUser->email
-        ]);
-        $deviceName = 'ipone13';              
-
-        return $newUser->createToken($deviceName)->plainTextToken;
-
-    }
-    else {
-        $deviceName = 'ipone14';              
-
-        $user = User::where('email', $callBackUser->email)->first();
-
-        return $user->createToken($deviceName)->plainTextToken;
-
-    }
+    return view('imran');
 });
