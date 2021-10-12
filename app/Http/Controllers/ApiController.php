@@ -40,7 +40,7 @@ class ApiController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'email' => $request->photo, 
+            'photo' => $request->photo, 
         ]);
         $deviceName ='iphone12';
         return $user->createToken($deviceName)->plainTextToken;
