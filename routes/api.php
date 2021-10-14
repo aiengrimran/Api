@@ -72,6 +72,4 @@ Route::get('/auth/callback', function () {
 
     // }
 });
-// Route::get('/auth/callback', function () {
-//     return view('imran');
-// });
+Route::get('/SendShipping/email/{id}', [DeliveryController::class, 'SendEmailToReciver']);

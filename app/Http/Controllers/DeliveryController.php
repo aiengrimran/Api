@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
+use App\Mail\DeliveryCreated;
+use Illuminate\Support\Facades\Mail;
+
 
 class DeliveryController extends Controller
 {
@@ -44,7 +48,9 @@ class DeliveryController extends Controller
             'phone' => $request->phone,
             'pick_up_time' =>$request->pick_up_time
         ]);
-         return $delivery->id;
+         Mail::to($delivery->email)->send(new DeliveryCreated($delivery));
+         return 'Email Has been Send and your delivery id is ' . $delivery->id;
+
     }
 
     /**
@@ -93,5 +99,11 @@ class DeliveryController extends Controller
     public function destroy(Delivery $delivery)
     {
         //
+    }
+    public function SendEmailToReciver($id) {
+        $delivery = Delivery::find($id);
+
+        Mail::to('muhammadimran5236@gmail.com')->send(new DeliveryCreated($delivery));
+        return "Emai has been sent";
     }
 }
