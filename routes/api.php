@@ -40,36 +40,6 @@ Route::middleware('auth:sanctum')->get('/sanctum/logout',[ApiController::class, 
 Route::post('/sanctum/token', [ApiController::class, 'create']);
 Route::post('/sanctum/login', [ApiController::class, 'login']);
 
-// -------------------- Socailte Routes  ----------------------------------------------
-  //reactnativeapibyimran.herokuapp.com/api/auth/redirect=http:/localhost:19006
-Route::get('/auth/redirect', function () {
-  // return view('imranC');
-    return Socialite::driver('google')->stateless()->redirect();
-    //return Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
-});
 
-Route::get('/auth/callback', function () {
-  return view('imranC');
-    // $callBackUser = Socialite::driver('google')->stateless()->user();
-    // if(!User::where('email',$callBackUser->email)->first()) {
-    //     $newUser=User::create([
-    //         'name' =>$callBackUser->name,
-    //         'email' =>$callBackUser->email
-    //     ]);
-    //     $deviceName = 'ipone13';              
-
-    //     return $newUser->createToken($deviceName)->plainTextToken;
-
-    // }
-    // else {
-        // $deviceName = 'ipone14';              
-
-        // $user = User::where('email', $callBackUser->email)->first();
-
-        // $token = $user->createToken($deviceName)->plainTextToken;
-        // return $token;
-        // return view('imranC');
-
-    // }
-});
 Route::get('/SendShipping/email/{id}', [DeliveryController::class, 'SendEmailToReciver']);
+Route::middleware('auth:sanctum')->get('/getOrders',[DeliveryController::class, 'getCurrentUserOrders']);
