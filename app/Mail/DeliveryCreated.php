@@ -12,16 +12,21 @@ class DeliveryCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $delivery;
+    // public $delivery;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($delivery)
+    // public function __construct($delivery)
+    // {
+    //     $this->delivery=$delivery;
+    // }
+    public function __construct()
     {
-        $this->delivery=$delivery;
+        
     }
+
 
 
     /**

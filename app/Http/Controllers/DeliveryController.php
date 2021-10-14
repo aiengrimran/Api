@@ -100,10 +100,13 @@ class DeliveryController extends Controller
     {
         //
     }
-    public function SendEmailToReciver($id) {
-        $delivery = Delivery::find($id);
+    // public function SendEmailToReciver($id) {
+    public function SendEmailToReciver() {
 
-        Mail::to('muhammadimran5236@gmail.com')->send(new DeliveryCreated($delivery));
+        // $delivery = Delivery::find($id);
+        Mail::to('muhammadimran5236@gmail.com')->send(new DeliveryCreated());
+        
+        // Mail::to('muhammadimran5236@gmail.com')->send(new DeliveryCreated($delivery));
         return "Emai has been sent";
     }
 }
