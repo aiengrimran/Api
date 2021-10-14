@@ -58,13 +58,8 @@ class ApiController extends Controller
     	
     	return 'user Logged out';
     }
-    // public function CheckIfSocialUserExist(Request $request) {
-    //     $user = User::where('email', $request->email)->firstOrFail();
-    //     if($user) {
-    //         $this->;
-    //     }
 
-    // }
+
     
 
    
