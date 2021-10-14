@@ -107,7 +107,7 @@ class DeliveryController extends Controller
         Mail::to('muhammadimran5236@gmail.com')->send(new DeliveryCreated($delivery));
         return "Emai has been sent";
     }
-    public function getCurrentUserOrders() {
+    public function getCurrentUserOrders(Request $request) {
         $user = $request->user();
         $deliveres = Delivery::where('user_id', $user->id)->get();
         return $deliveres;
