@@ -48,7 +48,7 @@ class DeliveryController extends Controller
             'phone' => $request->phone,
             'pick_up_time' =>$request->pick_up_time
         ]);
-         Mail::to($delivery->email)->send(new DeliveryCreated($delivery));
+         // Mail::to($delivery->email)->send(new DeliveryCreated($delivery));
          return 'Email Has been Send and your delivery id is ' . $delivery->id;
 
     }
